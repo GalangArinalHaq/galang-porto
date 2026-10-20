@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galang Arinal Haq — Product Designer & Creative Developer</title>
+  <meta name="description" content="Portofolio sinematik Galang Arinal Haq. Memperlakukan setiap karya sebagai frame, setiap proyek sebagai scene, dan setiap baris kode sebagai presisi 24 FPS.">
+  
+  <!-- Open Graph / Meta Sosial -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Galang Arinal Haq — Film-Inspired Portfolio">
+  <meta property="og:description" content="Designer by trade, developer by habit. Antarmuka digital dengan ritme sinema.">
+  <meta property="og:image" content="./assets/images/hero_cinematography_reel.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Stylesheet Utama (CSS Variables & Sinema Rules) -->
+  <link rel="stylesheet" href="./theme.css">
+</head>
+<body>
+
+  <!-- NAVBAR STICKY (Otomatis dirender oleh main.js) -->
+  <div id="site-header-container"></div>
+
+  <!-- =========================================================================
+       1. HERO SECTION (SCENE 01: PROLOGUE) — SEKSI GELAP
+       ========================================================================= -->
+  <section class="section-dark" style="padding-top: 4.5rem; padding-bottom: 5rem; position: relative;">
+    <div class="container">
+      
+      <!-- Top Meta Kicker & Live Timecode HUD -->
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: 2rem;">
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <span class="on-air-badge">
+            <span class="on-air-dot"></span>
+            <span>REC ● SCENE 01 / PROLOGUE</span>
+          </span>
+          <span class="mono-label" style="color: var(--text-muted-dark); display: none; @media(min-width:640px){display:inline;}">35MM ANAMORPHIC</span>
+        </div>
+
+        <div class="timecode-box">
+          <span style="opacity: 0.7;">TIMECODE</span>
+          <span class="live-timecode">00:01:24:08</span>
+        </div>
+      </div>
+
+      <!-- Hero Two-Column Split -->
+      <div style="display: grid; grid-template-columns: 1fr; gap: 3.5rem; align-items: center; margin-bottom: 4rem;">
+        
+        <!-- Kolom Kiri: Tipografi Raksasa & Panggilan Aksi -->
+        <div>
+          <h1 style="font-size: clamp(2.5rem, 6.5vw, 4.75rem); font-weight: 800; line-height: 1.04; letter-spacing: -0.04em; margin-bottom: 1.75rem;">
+            Designer by trade,<br>
+            <span class="cinema-highlight">developer by habit.</span>
+          </h1>
+
+          <p class="text-muted" style="font-size: clamp(1.0625rem, 2vw, 1.25rem); max-width: 65ch; margin-bottom: 2.25rem; line-height: 1.6;">
+            Memperlakukan setiap antarmuka digital selayaknya adegan film: komposisi presisi, pencahayaan berani, dan ritme interaksi yang mengikat pengguna sejak frame pertama.
+          </p>
+
+          <!-- 2 Tombol Aksi Utama -->
+          <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center;">
+            <a href="work.html" class="btn-primary" style="padding: 0.85rem 1.75rem;">
+              <span>View Selected Works</span>
+              <span aria-hidden="true">→</span>
+            </a>
+            <a href="contact.html" class="btn-outline" style="padding: 0.85rem 1.75rem;">
+              <span>Have a project? Let's shoot</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Kolom Kanan: 35mm Visual Film Strip Card -->
+        <div>
+          <div class="film-strip-card">
+            <!-- Sprocket Holes Horizontal Atas -->
+            <div class="sprocket-holes-horizontal top" id="hero-sprockets-top"></div>
+
+            <div style="position: relative; overflow: hidden; border-radius: 4px; border: 1px solid #333;">
+              <img src="./assets/images/hero_cinematography_reel.jpg" alt="Cinematic Film Reel Production" style="width: 100%; height: 380px; object-fit: cover;" onerror="this.onerror=null; this.src='./src/assets/images/hero_cinematography_reel_1792481815277.jpg';">
+              
+              <!-- Film Overlay Metadata -->
+              <div style="position: absolute; bottom: 0; inset-inline: 0; padding: 1.25rem; background: linear-gradient(to top, rgba(10,9,8,0.92) 0%, rgba(10,9,8,0) 100%); display: flex; justify-content: space-between; align-items: flex-end;">
+                <div>
+                  <div class="mono-label" style="color: var(--accent); margin-bottom: 0.25rem;">FRAME 01 / 24 — PRODUCTION MASTER</div>
+                  <div style="font-size: 1rem; font-weight: 700; color: #fff;">Chiaroscuro & Motion Direction</div>
+                </div>
+                <div class="mono-label" style="color: #bbb; font-size: 0.6875rem;">KODAK 400TX · 24 FPS</div>
+              </div>
+            </div>
+
+            <!-- Sprocket Holes Horizontal Bawah -->
+            <div class="sprocket-holes-horizontal bottom" id="hero-sprockets-bottom"></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Row Metrik 4 Kolom di Bawah Split -->
+      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; padding-top: 2rem; border-top: 1px solid var(--border-dark);">
+        <div style="border-right: 1px solid var(--border-dark); padding-right: 1rem;">
+          <div style="font-size: clamp(2rem, 3.5vw, 2.75rem); font-weight: 800; color: var(--accent); font-family: var(--font-display);">48+</div>
+          <div class="mono-label" style="color: var(--text-muted-dark); margin-top: 0.25rem;">PRODUCTION FRAMES</div>
+        </div>
+        <div style="border-right: 1px solid var(--border-dark); padding-right: 1rem;">
+          <div style="font-size: clamp(2rem, 3.5vw, 2.75rem); font-weight: 800; color: var(--text-light); font-family: var(--font-display);">7 YRS</div>
+          <div class="mono-label" style="color: var(--text-muted-dark); margin-top: 0.25rem;">BEHIND THE LENS & CODE</div>
+        </div>
+        <div style="border-right: 1px solid var(--border-dark); padding-right: 1rem;">
+          <div style="font-size: clamp(2rem, 3.5vw, 2.75rem); font-weight: 800; color: var(--text-light); font-family: var(--font-display);">99.4%</div>
+          <div class="mono-label" style="color: var(--text-muted-dark); margin-top: 0.25rem;">ON-TIME WRAP RATE</div>
+        </div>
+        <div>
+          <div style="font-size: clamp(2rem, 3.5vw, 2.75rem); font-weight: 800; color: var(--accent); font-family: var(--font-display);">100%</div>
+          <div class="mono-label" style="color: var(--text-muted-dark); margin-top: 0.25rem;">SYNC SOUND & PERFORMANCE</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       2. FEATURED WORKS (SCENE 02: SELECTED FRAMES) — SEKSI KREM
+       ========================================================================= -->
+  <section class="section-cream" style="padding-top: 5.5rem; padding-bottom: 6rem;">
+    <div class="container">
+      
+      <!-- Section Header -->
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; margin-bottom: 3.5rem; gap: 1.5rem;">
+        <div>
+          <div class="mono-label" style="color: var(--text-muted-light); margin-bottom: 0.5rem;">01 / SCENE — SELECTED WORKS</div>
+          <h2 style="font-size: clamp(2rem, 4vw, 3.25rem); color: var(--text-dark);">
+            Featured Production Frames.
+          </h2>
+        </div>
+        <a href="work.html" class="btn-outline btn-outline-dark" style="font-size: 0.75rem;">
+          View All Scenes Archive →
+        </a>
+      </div>
+
+      <!-- Film Strip Showcase (Vertical Film Frames) -->
+      <div style="display: grid; grid-template-columns: 1fr; gap: 3rem;" id="featured-projects-container">
+        <!-- Dirender oleh JS dari content.js -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       3. TESTIMONI (WHAT CLIENTS SAY) — SEKSI GELAP (CATATAN BERLAKBAN)
+       ========================================================================= -->
+  <section class="section-dark" style="padding-top: 5.5rem; padding-bottom: 6rem;">
+    <div class="container">
+      
+      <!-- Section Header -->
+      <div style="margin-bottom: 3.5rem; max-width: 60ch;">
+        <div class="mono-label" style="color: var(--accent); margin-bottom: 0.5rem;">SCENE 03 / PRODUCTION NOTES</div>
+        <h2 style="font-size: clamp(2rem, 4vw, 3.25rem); margin-bottom: 1rem;">
+          What the Crew & Clients Say.
+        </h2>
+        <p class="text-muted" style="font-size: 1.0625rem;">
+          Catatan autentik dari mitra kerja yang telah menyelesaikan sprint desain dan rekayasa antarmuka bersama saya.
+        </p>
+      </div>
+
+      <!-- Grid Catatan Miring Berlapis Lakban -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem;" id="testimonials-container">
+        <!-- Dirender otomatis oleh JS -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       4. HIGH-VOLTAGE CTA (HAVE A PROJECT? LET'S SHOOT) — SEKSI ORANYE/GELAP
+       ========================================================================= -->
+  <section style="background-color: #0c0b0a; border-top: 1px solid var(--border-dark); padding: 5.5rem 0; position: relative; overflow: hidden;">
+    <div class="container" style="text-align: center; max-width: 860px;">
+      
+      <div style="display: inline-flex; margin-bottom: 1.75rem;">
+        <div class="on-air-badge" style="background-color: rgba(255, 74, 28, 0.15); font-size: 0.8125rem; padding: 0.35rem 0.85rem;">
+          <span class="on-air-dot"></span>
+          <span>ON AIR // BOOKING OPEN FOR 2026</span>
+        </div>
+      </div>
+
+      <h2 style="font-size: clamp(2.5rem, 5.5vw, 4.25rem); font-weight: 800; margin-bottom: 1.5rem; letter-spacing: -0.04em;">
+        Have a project? <span class="cinema-highlight">Let's shoot.</span>
+      </h2>
+
+      <p class="text-muted" style="font-size: 1.125rem; max-width: 58ch; margin: 0 auto 2.5rem; line-height: 1.7;">
+        Apakah Anda sedang membangun platform komputasi baru, merombak design system, atau membutuhkan sprint intensif 4 hari? Mari diskusikan frame pertama Anda.
+      </p>
+
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; align-items: center;">
+        <a href="contact.html" class="btn-primary" style="padding: 1rem 2rem; font-size: 0.875rem;">
+          <span>Start Production Inquiry</span>
+          <span aria-hidden="true">→</span>
+        </a>
+        <a href="work.html" class="btn-outline" style="padding: 1rem 2rem; font-size: 0.875rem;">
+          <span>Explore Case Studies</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER CLAPPERBOARD (Otomatis dirender oleh main.js) -->
+  <div id="site-footer-container"></div>
+
+  <!-- SCRIPT DATA & CONTROLLER -->
+  <script src="./content.js"></script>
+  <script src="./main.js"></script>
+  <script>
+    // Inisialisasi halaman beranda
+    document.addEventListener('DOMContentLoaded', () => {
+      window.CinematicApp.renderHeader('home');
+      window.CinematicApp.renderFooter();
+      window.CinematicApp.startLiveTimecode();
+
+      // Render Sprockets Atas & Bawah di Hero
+      const topSprockets = document.getElementById('hero-sprockets-top');
+      const bottomSprockets = document.getElementById('hero-sprockets-bottom');
+      if (topSprockets) topSprockets.innerHTML = window.CinematicApp.generateSprocketHolesHtml(14);
+      if (bottomSprockets) bottomSprockets.innerHTML = window.CinematicApp.generateSprocketHolesHtml(14);
+
+      // Render Featured Works dalam Film Frame Vertikal
+      const projects = (window.PORTFOLIO_DATA.projects || []).filter(p => p.featured);
+      const worksContainer = document.getElementById('featured-projects-container');
+      
+      if (worksContainer && projects.length) {
+        worksContainer.innerHTML = projects.map((p, index) => `
+          <div class="film-frame-vertical" style="background-color: #121110; color: #F1EBDD;">
+            <div class="sprocket-rail-vertical left">${window.CinematicApp.generateVerticalSprocketsHtml(8)}</div>
+            <div class="sprocket-rail-vertical right">${window.CinematicApp.generateVerticalSprocketsHtml(8)}</div>
+
+            <div style="display: grid; grid-template-columns: 1fr; gap: 2rem; align-items: center;" class="project-grid-inner">
+              <div style="position: relative; overflow: hidden; border-radius: 4px; border: 1px solid #333;">
+                <img src="${window.CinematicApp.getImagePath(p.image)}" alt="${p.title}" style="width: 100%; height: 320px; object-fit: cover;" onerror="this.onerror=null; this.src='./src/assets/images/${p.image}';">
+                <div style="position: absolute; top: 1rem; left: 1rem;">
+                  <span class="on-air-badge" style="background: rgba(0,0,0,0.7);">${p.number}</span>
+                </div>
+              </div>
+
+              <div>
+                <div class="mono-label" style="color: var(--accent); margin-bottom: 0.5rem;">${p.category} · ${p.year}</div>
+                <h3 style="font-size: clamp(1.5rem, 3vw, 2.25rem); margin-bottom: 0.75rem; color: #fff;">${p.title}</h3>
+                <p style="color: #A29C91; font-size: 1rem; margin-bottom: 1.5rem; line-height: 1.6;">${p.summary}</p>
+                
+                <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.75rem;">
+                  ${p.techStack.map(t => `<span class="mono-label" style="color: #ccc; font-size: 0.6875rem;">${t}</span>`).join(' · ')}
+                </div>
+
+                <button onclick="window.openProjectModal('${p.id}')" class="btn-primary" style="padding: 0.65rem 1.25rem; font-size: 0.75rem;">
+                  Inspect Scene Case Study →
+                </button>
+              </div>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      // Render Testimoni Berlapis Lakban
+      const testimonials = window.PORTFOLIO_DATA.testimonials || [];
+      const testContainer = document.getElementById('testimonials-container');
+      if (testContainer && testimonials.length) {
+        testContainer.innerHTML = testimonials.map(t => `
+          <div class="taped-note-card" style="transform: rotate(${t.rotation || '0deg'});">
+            <div class="masking-tape ${t.tapeColor === 'silver' ? 'silver' : ''}"></div>
+            <p style="font-size: 1.0625rem; font-style: italic; line-height: 1.6; margin-bottom: 1.5rem; color: #1A1816;">
+              “${t.quote}”
+            </p>
+            <div style="border-top: 1px dashed rgba(26,24,22,0.2); padding-top: 1rem;">
+              <div style="font-weight: 800; font-family: var(--font-display); font-size: 1rem; color: #1A1816;">${t.author}</div>
+              <div class="mono-label" style="color: #6E685F; font-size: 0.6875rem; margin-top: 0.25rem;">${t.title} · ${t.project}</div>
+            </div>
+          </div>
+        `).join('');
+      }
+    });
+  </script>
+</body>
+</html>

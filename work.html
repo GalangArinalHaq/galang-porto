@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selected Works & Scenes — Galang Arinal Haq</title>
+  <meta name="description" content="Arsip karya dan case study Galang Arinal Haq. Setiap proyek adalah sebuah adegan yang dirancang dengan presisi 24 FPS.">
+  
+  <meta property="og:title" content="Works & Scenes — Galang Arinal Haq">
+  <meta property="og:description" content="Deep dive case studies: Brief → What I did → Design & code → The result.">
+  <meta property="og:image" content="./assets/images/project_frame_lumina.jpg">
+
+  <link rel="stylesheet" href="./theme.css">
+</head>
+<body>
+
+  <!-- NAVBAR STICKY -->
+  <div id="site-header-container"></div>
+
+  <!-- =========================================================================
+       WORK HEADER — SEKSI GELAP
+       ========================================================================= -->
+  <section class="section-dark" style="padding-top: 4.5rem; padding-bottom: 3.5rem;">
+    <div class="container">
+      <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+        <span class="on-air-badge">SCENE ARCHIVE</span>
+        <span class="mono-label" style="color: var(--text-muted-dark);">ALL FRAMES IN CHRONOLOGICAL REEL</span>
+      </div>
+
+      <h1 style="font-size: clamp(2.5rem, 5.5vw, 4rem); margin-bottom: 1.25rem;">
+        Selected Works & <span class="cinema-highlight">Case Studies.</span>
+      </h1>
+      
+      <p class="text-muted" style="font-size: 1.125rem; max-width: 68ch; margin-bottom: 2.5rem;">
+        Setiap karya dirinci melalui urutan sinematik: The brief → What I did → Design & code → The result (angka hasil) → More frames.
+      </p>
+
+      <!-- Filter Controls (Functional Segmented Tabs) -->
+      <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; border-bottom: 1px solid var(--border-dark); padding-bottom: 1rem;" id="filter-tabs">
+        <button class="btn-outline active-filter" data-category="all" style="font-size: 0.75rem; padding: 0.5rem 1rem;">All Scenes (4)</button>
+        <button class="btn-outline" data-category="Digital Product" style="font-size: 0.75rem; padding: 0.5rem 1rem;">Digital Product</button>
+        <button class="btn-outline" data-category="Brand & Motion" style="font-size: 0.75rem; padding: 0.5rem 1rem;">Brand & Motion</button>
+        <button class="btn-outline" data-category="Creative Code" style="font-size: 0.75rem; padding: 0.5rem 1rem;">Creative Code</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       PROJECT GRID — SEKSI KREM
+       ========================================================================= -->
+  <section class="section-cream" style="padding-top: 5rem; padding-bottom: 6rem;">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 2.5rem;" id="projects-grid">
+        <!-- Rendered by JS from content.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER CLAPPERBOARD -->
+  <div id="site-footer-container"></div>
+
+  <!-- SCRIPT DATA & CONTROLLER -->
+  <script src="./content.js"></script>
+  <script src="./main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      window.CinematicApp.renderHeader('work');
+      window.CinematicApp.renderFooter();
+      window.CinematicApp.startLiveTimecode();
+
+      const projects = window.PORTFOLIO_DATA.projects || [];
+      const grid = document.getElementById('projects-grid');
+      let currentFilter = 'all';
+
+      function renderProjects(filter) {
+        const filtered = filter === 'all' ? projects : projects.filter(p => p.category === filter);
+        
+        grid.innerHTML = filtered.map(p => `
+          <div class="film-frame-vertical" style="background-color: #121110; color: #F1EBDD; display: flex; flex-direction: column; justify-content: space-between;">
+            <div class="sprocket-rail-vertical left">${window.CinematicApp.generateVerticalSprocketsHtml(6)}</div>
+            <div class="sprocket-rail-vertical right">${window.CinematicApp.generateVerticalSprocketsHtml(6)}</div>
+
+            <div>
+              <div style="position: relative; overflow: hidden; border-radius: 4px; border: 1px solid #333; margin-bottom: 1.25rem;">
+                <img src="${window.CinematicApp.getImagePath(p.image)}" alt="${p.title}" style="width: 100%; height: 240px; object-fit: cover;" onerror="this.onerror=null; this.src='./src/assets/images/${p.image}';">
+                <div style="position: absolute; top: 0.75rem; left: 0.75rem;">
+                  <span class="on-air-badge" style="background: rgba(0,0,0,0.75);">${p.number}</span>
+                </div>
+              </div>
+
+              <div class="mono-label" style="color: var(--accent); margin-bottom: 0.5rem;">${p.category} · ${p.year}</div>
+              <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem; color: #fff;">${p.title}</h3>
+              <p style="color: #A29C91; font-size: 0.9375rem; margin-bottom: 1.25rem; line-height: 1.5;">${p.summary}</p>
+            </div>
+
+            <div>
+              <!-- Metrics Highlight -->
+              <div style="background-color: #1a1918; border: 1px solid var(--border-dark); padding: 0.75rem 1rem; border-radius: 4px; margin-bottom: 1.25rem; display: flex; justify-content: space-between; align-items: center;">
+                <span class="mono-label" style="color: var(--text-muted-dark); font-size: 0.6875rem;">PRIMARY OUTCOME</span>
+                <span style="font-weight: 800; color: var(--accent); font-family: var(--font-display);">${(p.results && p.results[0]) ? p.results[0].metric : 'Verified'}</span>
+              </div>
+
+              <button onclick="window.openProjectModal('${p.id}')" class="btn-primary" style="width: 100%; font-size: 0.75rem; padding: 0.75rem;">
+                Open Full Scene Brief →
+              </button>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      renderProjects('all');
+
+      // Filter click handlers
+      const filterButtons = document.querySelectorAll('#filter-tabs button');
+      filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterButtons.forEach(b => {
+            b.classList.remove('active-filter');
+            b.style.backgroundColor = 'transparent';
+            b.style.borderColor = 'var(--border-dark)';
+          });
+          btn.classList.add('active-filter');
+          btn.style.backgroundColor = 'var(--accent)';
+          btn.style.color = '#121110';
+          btn.style.borderColor = 'var(--accent)';
+          
+          currentFilter = btn.dataset.category;
+          renderProjects(currentFilter);
+        });
+      });
+      // Set active default
+      const defaultBtn = document.querySelector('[data-category="all"]');
+      if (defaultBtn) {
+        defaultBtn.style.backgroundColor = 'var(--accent)';
+        defaultBtn.style.color = '#121110';
+      }
+    });
+  </script>
+</body>
+</html>

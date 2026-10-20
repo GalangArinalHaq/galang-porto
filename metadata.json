@@ -1,0 +1,6 @@
+{
+  "name": "Cinematic Director Portfolio",
+  "description": "Cinema-themed creative portfolio with 35mm film strips, frame-by-frame case studies, clapperboard footer, and modular single-file content architecture.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
