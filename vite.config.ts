@@ -3,23 +3,25 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 import {defineConfig} from 'vite';
 
+const currentDir = typeof import.meta.dirname !== 'undefined' ? import.meta.dirname : __dirname;
+
 export default defineConfig(() => {
   return {
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
-        '@': path.resolve(__dirname, '.'),
+        '@': path.resolve(currentDir, '.'),
       },
     },
     build: {
       rollupOptions: {
         input: {
-          main: path.resolve(__dirname, 'index.html'),
-          work: path.resolve(__dirname, 'work.html'),
-          about: path.resolve(__dirname, 'about.html'),
-          services: path.resolve(__dirname, 'services.html'),
-          journal: path.resolve(__dirname, 'journal.html'),
-          contact: path.resolve(__dirname, 'contact.html'),
+          main: path.resolve(currentDir, 'index.html'),
+          work: path.resolve(currentDir, 'work.html'),
+          about: path.resolve(currentDir, 'about.html'),
+          services: path.resolve(currentDir, 'services.html'),
+          journal: path.resolve(currentDir, 'journal.html'),
+          contact: path.resolve(currentDir, 'contact.html'),
         },
       },
     },

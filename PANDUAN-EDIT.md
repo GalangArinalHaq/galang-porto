@@ -1,21 +1,65 @@
-# 🎬 PANDUAN EDIT PORTOFOLIO SINEMA & FILM
+# 🎬 PANDUAN LENGKAP & CARA DEPLOY KE VERCEL
 
-Selamat datang di portofolio sinematik Anda! Seluruh website ini dibangun dengan prinsip **Zero Framework & Zero Build Step** (HTML, CSS, dan JavaScript murni). Anda bisa langsung membukanya di komputer cukup dengan **klik dua kali berkas `index.html`** tanpa perlu menginstal Node.js atau menjalankan perintah terminal apa pun.
+Selamat datang di portofolio sinematik Anda! Seluruh website ini telah dikonfigurasi **100% Siap Deploy ke Vercel** (*Zero Configuration*) dengan berkas `vercel.json` dan performa teroptimasi.
 
 ---
 
-## 📁 Struktur Berkas
+## 🚀 PANDUAN CEPAT DEPLOY KE VERCEL (3 CARA)
+
+Proyek ini sudah dilengkapi dengan berkas **`vercel.json`** yang secara otomatis mengatur build Vite, cache aset 1 tahun, dan URL bersih (contoh: `/work`, `/about`, `/contact`).
+
+### CARA 1: Lewat Git & Dashboard Vercel (Paling Direkomendasikan & Otomatis Update)
+1. Unggah (*push*) folder proyek ini ke repositori **GitHub**, **GitLab**, atau **Bitbucket** Anda.
+2. Buka [vercel.com](https://vercel.com) dan login dengan akun GitHub Anda.
+3. Klik tombol **"Add New..."** lalu pilih **"Project"**.
+4. Pilih repositori portofolio yang baru Anda buat, lalu klik **"Import"**.
+5. Vercel akan otomatis membaca file `vercel.json` dan `package.json`.
+   - **Framework Preset**: Vite (terdeteksi otomatis)
+   - **Build Command**: `npm run build`
+   - **Output Directory**: `dist`
+6. Klik tombol **"Deploy"**.
+7. Dalam ~15-30 detik, website portofolio Anda langsung tayang dengan domain gratis (contoh: `portofolio-galang.vercel.app`) dan sertifikat SSL HTTPS otomatis! Setiap kali Anda mengubah teks di GitHub, Vercel akan otomatis melakukan update ke website Anda.
+
+---
+
+### CARA 2: Deploy Cepat Lewat Vercel CLI (Dari Terminal Komputer)
+Jika Anda suka menggunakan terminal:
+```bash
+# 1. Pasang Vercel CLI (jika belum ada)
+npm i -g vercel
+
+# 2. Masuk ke direktori proyek dan jalankan:
+vercel
+
+# 3. Ikuti petunjuk singkat di layar (cukup tekan Enter untuk pilihan default)
+# 4. Untuk deploy ke produksi langsung:
+vercel --prod
+```
+
+---
+
+### CARA 3: Deploy Tanpa Terminal (Netlify Drag & Drop)
+Sebagai alternatif gratis instan:
+1. Kunjungi [netlify.com](https://www.netlify.com).
+2. Geser dan lepaskan (*drag and drop*) seluruh isi folder ini atau folder `dist/` ke area upload Netlify.
+3. Website Anda langsung live dalam 5 detik.
+
+---
+
+## 📁 Struktur Berkas Proyek
 
 ```text
-├── index.html          # Halaman Beranda (Hero, Selected Works, Testimoni, CTA)
-├── work.html           # Halaman Arsip Karya (Filter Kategori & Case Studies)
-├── about.html          # Halaman Tentang (Timeline, 3 Aturan, Production Credits)
+├── index.html          # Halaman Beranda (Hero sinema, Selected Works, Testimoni, CTA)
+├── work.html           # Halaman Arsip Karya & Case Studies
+├── about.html          # Halaman Tentang ("The story, frame by frame", 3 Rules, Credits)
 ├── services.html       # Halaman Layanan & Framework 4-Day Project Sprint
-├── journal.html        # Halaman Catatan Sutradara / Blog & Kutipan
+├── journal.html        # Halaman Catatan Sutradara / Blog & Kutipan Sinema
 ├── contact.html        # Halaman Kontak & Formulir Pemesanan Produksi
 ├── content.js          # <<< PUSAT KONTEN UTAMA: Ubah semua teks di sini >>>
 ├── theme.css           # <<< PUSAT TAMPILAN: Ubah warna & font di sini >>>
 ├── main.js             # Logika interaktif (navbar, timecode HUD, modal)
+├── vercel.json         # Konfigurasi deploy Vercel (clean URLs, routing, caching)
+├── .vercelignore       # Mengabaikan berkas berat saat upload ke Vercel
 ├── assets/
 │   └── images/         # Folder tempat menyimpan seluruh foto & frame proyek
 └── PANDUAN-EDIT.md     # Panduan lengkap yang sedang Anda baca
@@ -23,162 +67,38 @@ Selamat datang di portofolio sinematik Anda! Seluruh website ini dibangun dengan
 
 ---
 
-## ⚡ 1. Cara Mengubah Nama, Bio, dan Teks
+## ⚡ Cara Mengedit Konten Sendiri
 
-Buka file **`content.js`** dengan text editor apa saja (VS Code, Notepad, Sublime Text).
-Semua data teks terpusat di file ini dan sudah dilengkapi dengan penanda `<<< EDIT DI SINI >>>`.
-
-### Mengubah Profil & Nama:
-Cari bagian `profile`:
+### 1. Mengubah Profil, Nama & Headline
+Buka **`content.js`** dengan text editor (VS Code, Notepad, dll). Semua teks ada di sini:
 ```javascript
 profile: {
-  name: "Nama Lengkap Anda",
-  shortName: "NamaPanggilan",
-  role: "Product Designer & Web Developer",
-  location: "Jakarta, Indonesia",
-  email: "emailanda@gmail.com",
-  phone: "+62 812-xxxx-xxxx",
+  name: "Galang Arinal Haq",
+  shortName: "Galang",
+  role: "Product Designer & Creative Developer",
+  email: "galangarinalhaq23@gmail.com",
   ...
 }
 ```
 
-### Mengubah Headline Hero di Halaman Utama:
-Cari bagian `hero`:
-```javascript
-hero: {
-  headlinePart1: "Designer by trade,",
-  headlineHighlight: "developer by habit.", // Kata yang disorot stabilo oranye
-  subheadline: "Tuliskan deskripsi singkat atau moto Anda di sini...",
-  primaryCtaText: "View Selected Works",
-  secondaryCtaText: "Have a project? Let's shoot",
-  ...
-}
-```
+### 2. Mengganti atau Menambah Foto
+1. Taruh foto baru di `assets/images/foto-anda.jpg`.
+2. Di **`content.js`**, cukup tuliskan nama filenya:
+   ```javascript
+   image: "foto-anda.jpg"
+   ```
 
----
-
-## 🖼️ 2. Cara Mengganti Foto & Menambah Gambar
-
-1. Simpan foto baru Anda ke dalam folder:  
-   `assets/images/nama-foto-anda.jpg`
-2. Buka **`content.js`**. Cukup tuliskan nama file fotonya saja!
-   - Untuk foto profil / polaroid:
-     ```javascript
-     avatarImage: "nama-foto-anda.jpg",
-     ```
-   - Untuk banner utama hero:
-     ```javascript
-     bannerImage: "nama-foto-banner.jpg",
-     ```
-   - Untuk thumbnail proyek:
-     ```javascript
-     image: "foto-proyek.jpg",
-     ```
-
-*Tips Ukuran Rasio Foto Sinema:*
-- Banner Hero: Rasio **16:9** (lanskap lebar)
-- Frame Proyek: Rasio **4:3** atau **16:9**
-- Foto Polaroid Sutradara: Rasio **1:1** (kotak persegi)
-
----
-
-## 🚀 3. Cara Menambah Proyek Baru
-
-Buka **`content.js`**, cari daftar `projects: [ ... ]`. Salin salah satu blok proyek, tempelkan di bawahnya, lalu sesuaikan:
-
-```javascript
-{
-  id: "proyek-baru-anda",
-  number: "SCENE 05",
-  title: "Judul Proyek Keren",
-  client: "Nama Klien / Perusahaan",
-  year: "2026",
-  category: "Digital Product", // Pilihan: "Digital Product", "Brand & Motion", atau "Creative Code"
-  featured: true, // true agar muncul di halaman depan, false untuk arsip saja
-  image: "proyek_baru.jpg",
-  summary: "Ringkasan 1-2 kalimat tentang proyek ini.",
-  brief: "Tantangan atau masalah yang dihadapi klien...",
-  whatIDid: [
-    "Merancang sistem navigasi dan antarmuka mobile.",
-    "Mengembangkan kode front-end interaktif.",
-    "Mengoptimalkan kecepatan muat hingga skor 98."
-  ],
-  techStack: ["Figma", "TypeScript", "Tailwind CSS"],
-  results: [
-    { metric: "+120%", label: "Peningkatan konversi pengguna" },
-    { metric: "14 Hari", label: "Waktu dari konsep ke peluncuran" }
-  ],
-  liveUrl: "https://tautan-proyek-anda.com"
-},
-```
-
-Halaman `index.html` dan `work.html` akan langsung menampilkan proyek baru ini secara otomatis!
-
----
-
-## 🎨 4. Cara Mengubah Warna & Nuansa Tampilan
-
-Buka **`theme.css`**. Di baris paling atas terdapat konfigurasi variabel CSS:
-
+### 3. Mengubah Warna Utama Sinema
+Buka **`theme.css`** dan ubah variabel di baris paling atas:
 ```css
 :root {
-  /* Warna Gelap & Krem Sinema */
   --bg-dark: #121110;          /* Latar belakang seksi gelap */
   --bg-cream: #F1EBDD;         /* Latar belakang seksi krem */
-  
-  /* Warna Aksen Oranye Sinema */
   --accent: #FF4A1C;           /* Oranye stabilo sinema */
-  --accent-hover: #E53E12;
-  
-  /* Warna Teks */
-  --text-dark: #1A1816;
-  --text-light: #F1EBDD;
+  ...
 }
 ```
 
-Cukup ubah kode hex di atas (misalnya mengubah `--accent` menjadi `#00E5FF` untuk aksen Cyan atau `#FFB800` untuk Emas Bioskop), maka warna seluruh tombol, stabilo, border, dan timecode di seluruh halaman akan otomatis berganti serentak.
-
 ---
 
-## 🔤 5. Cara Mengganti Font
-
-Di dalam **`theme.css`**, cari baris `@import url(...)` dan variabel font:
-```css
---font-display: 'Inter Tight', 'Space Grotesk', sans-serif;
---font-mono: 'JetBrains Mono', monospace;
-```
-Anda bisa menggantinya dengan font Google Fonts favorit Anda lainnya (misalnya `Outfit`, `Bricolage Grotesque`, atau `Syne`).
-
----
-
-## 💻 6. Cara Membuka di Komputer (Offline / Lokal)
-
-1. Buka folder proyek di File Explorer (Windows) atau Finder (macOS).
-2. **Klik dua kali pada file `index.html`**.
-3. Website langsung terbuka di browser Anda (Chrome, Safari, Firefox, Edge).
-4. Tidak perlu internet (kecuali untuk font Google Fonts saat pertama kali muat) dan tidak perlu Node.js.
-
----
-
-## 🌐 7. Cara Deploy Online Gratis
-
-### Opsi A: GitHub Pages (Paling Direkomendasikan)
-1. Buat repository baru di [github.com](https://github.com) dengan nama `username.github.io` atau `portfolio`.
-2. Unggah seluruh file di folder ini ke repository tersebut.
-3. Buka **Settings** repository → pilih menu **Pages** di sebelah kiri.
-4. Pada **Branch**, pilih `main` dan folder `/ (root)`, lalu klik **Save**.
-5. Tunggu 1–2 menit, portofolio Anda langsung aktif di: `https://username.github.io`!
-
-### Opsi B: Netlify (Tarik & Lepas / Drag & Drop)
-1. Kunjungi [netlify.com](https://www.netlify.com/) dan masuk/daftar gratis.
-2. Buka tab **Sites** → geser dan lepaskan (drag and drop) seluruh folder ini ke area upload Netlify.
-3. Website Anda langsung live dalam 5 detik dan mendapatkan tautan gratis serta sertifikat SSL (HTTPS).
-
-### Opsi C: Vercel
-1. Kunjungi [vercel.com](https://vercel.com).
-2. Hubungkan akun GitHub Anda, pilih repositori portofolio ini, lalu klik **Deploy**.
-3. Tanpa build step (pilih Framework Preset: `Other`), website akan langsung tayang secara instan.
-
----
-
-*Disusun dengan presisi sinema 24 FPS untuk Galang Arinal Haq.*
+*Konfigurasi Vercel telah teruji dan siap tayang 24 FPS.*
